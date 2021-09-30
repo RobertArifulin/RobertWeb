@@ -3,17 +3,17 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse('Home page')
+    return render(request, 'accounts/home.html')
 
 
 def sing_up(request):
-    return HttpResponse('Sing up page')
+    return render(request, 'accounts/signup.html')
 
 
 def login(request):
-    return HttpResponse('Login page')
+    return render(request, 'accounts/login.html')
 
 
 def password_recovery(request):
-    return HttpResponse('Password recovery page')
+    return render(request, 'accounts/passrecover.html')
 

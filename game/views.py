@@ -2,12 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-def home(request):
-    return HttpResponse('Home page')
-
-
 def game(request):
-    return HttpResponse('Game page')
+    return render(request, 'game/game.html')
+
 
 def leaderboard(request):
-    return HttpResponse('Leaderboard page')
+    return render(request, 'game/leaderboard.html')
