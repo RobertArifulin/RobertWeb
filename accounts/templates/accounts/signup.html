@@ -1,9 +1,18 @@
 {% extends 'accounts/base.html' %}
-{% block content%}
-    <h2>Sign up</h2>
-    <h4 class="tab">Регистрация</h4>
-    <p class="tab">Введите Почту</p>
-    <p class="tab">Введите Логин</p>
-    <p class="tab">Введите Пароль</p>
-    <a href="pass_recovery">Восстановление пароля</a>
+{% block content %}
+<h1>Регистрация</h1>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <h5>Логин</h5>
+  {{form.username}}<br>
+  <h5>Адрес электронной почты</h5>
+  {{form.email}}<br>
+  <h5>Пароль</h5>
+  <input type="password" name="password1" placeholder="Введите пароль" class="form-control"><br>
+  <h5>Повторение пароля</h5>
+  <input type="password" name="password2" placeholder="Введите пароль" class="form-control"><br>
+  <button type="submit" class="btn btn-primary">Зарегистрироваться</button><br>
+  <h6>{{form.errors}}</h6>
+  Уже есть аккаунт? <a href="login" class="ml-2">Войти</a>
+</form>
 {% endblock %}

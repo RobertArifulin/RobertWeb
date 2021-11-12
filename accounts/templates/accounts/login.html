@@ -1,7 +1,18 @@
 {% extends 'accounts/base.html' %}
-{% block content%}
-    <h2>Login</h2>
-    <h4 class="tab">Вход</h4>
-    <p class="tab">Введите Логин</p>
-    <p class="tab">Введите Пароль</p>
+{% block content %}
+    <h1>Вход</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h5>Логин</h5>
+        <input type="text" name="username" placeholder="Введите логин" class="form-control"><br>
+        <h5>Пароль</h5>
+        <input type="password" name="password" placeholder="Введите пароль" class="form-control"><br>
+
+        <button type="submit" class="bt`n btn-primary">Войти</button><br>
+
+        <h6>{{ message }}</h6>
+
+        Нет аккаунта? <a href="signup" class="ml-2">Зарегистрироваться</a><br>
+        Забыли пароль или логин? <a href='passrecover' class="ml-2">Сбросить пароль</a>
+    </form>
 {% endblock %}
